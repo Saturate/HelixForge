@@ -17,7 +17,7 @@
   ],
   "author": "Allan Kimmer Jensen <m@akj.io> (https://akj.io)",
   "contributors": [
-    "Anders Pedersen <alp@pentia.dk> (https://pentia.dk)"
+    "Anders Pedersen <anders@volzy.dk>"
   ],
   "license": "MIT",
   "bugs": {
@@ -26,7 +26,8 @@
   "homepage": "https://github.com/Saturate/polymerase#readme",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "gulp": "github:gulpjs/gulp#4.0"
+    "gulp": "github:gulpjs/gulp#4.0",
+    "node-powershell": "^3.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
