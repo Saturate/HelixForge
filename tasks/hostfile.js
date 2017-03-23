@@ -19,23 +19,30 @@ function addHosts(done) {
 	];
 
 	const hosts = dummyDataHosts.slice(0); // Clone the hosts array
-	let addHostPromises = hosts.map(host => {
-		new Promise((resolve, reject) => {
-			hostile.set(host.ip, host.hostname, function (err) {
-				if (err) {
-					reject();
-					console.error(err);
-				} else {
-					console.log('Successfully added:', host.ip, host.hostname);
-					resolve();
-				}
-			});
-		});
-	});
 
-	Promise.all(addHostPromises).then(values => {
+	function insertCollection(callback) {
+		'use strict';
+		var hosts = dummyDataHosts.slice(0); // Clone the hosts array
+		(function insertOne() {
+			var host = hosts.splice(0, 1)[0]; // get the first record and reduce by one
+			hostile.set(host.ip, host.hostname, function (err) {
+			if (err) {
+				console.error(err);
+			} else {
+				console.log('Successfully added:', host.ip, host.hostname);
+				if (hosts.length === 0) {
+					callback();
+				} else {
+					insertOne();
+				}
+			}
+			});
+		})();
+	}
+
+	insertCollection(function() {
 		console.log('All hosts added.');
-		done()
+		done();
 	});
 }
 
