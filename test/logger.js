@@ -36,47 +36,39 @@ describe('Logger', () => {
   });
 
   it('outputs a warning message when log level is warning', () => {
+    let logs = [];
+
     helpers.consoleHelper(function() {
-      let logs = [];
       console.log = function() { logs.push(arguments) };
 
       logger.log('warning', messages.warning, 'warning');
-
-      expect(logs[0].length).to.equal(1);
     });
+
+    expect(logs[0].length).to.equal(1);
   });
 
   it('outputs an error message when log level is warning', () => {
+    let logs = [];
+
     helpers.consoleHelper(function() {
-      let logs = [];
       console.log = function() { logs.push(arguments) };
 
       logger.log('error', messages.error, 'warning');
-
-      expect(logs[0].length).to.equal(1);
     });
+
+    expect(logs.length).to.equal(1);
   });
 
   it('outputs the correct severity message', () => {
+    let logs = [];
+
     helpers.consoleHelper(function() {
-      let logs = [];
       console.log = function() { logs.push(arguments) };
 
       logger.log('warning', messages.warning, 'warning');
-
-      expect(logs[0][0]).to.contain(messages.warning);
     });
+
+    // Log message is an array of objects with 0,1,2,etc. as keys
+    expect(logs[0][0]).to.contain(messages.warning);
   });
-
-  /*it('can log a warning message', () => {
-    const type = {
-      color: 'yellow',
-      name: 'Warning'
-    };
-    const message = 'I am a warning message and I am yellow!';
-    sinon.spy(console, 'log');
-    logger.outputLogMessage(type, message);
-
-    expect( console.log.calledWith(type.name + ': ' + message) ).to.be.true;
-  });*/
 });
