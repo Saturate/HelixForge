@@ -41,6 +41,7 @@ const levels = {
   }
 }
 
+// TODO: Read log level from configuration reader
 const log = function(severity, message, level) {
   let logLevel = level || 'warning';
   const severitySettings = levels[severity];
