@@ -3,7 +3,6 @@
 
 import 'babel-polyfill';
 const expect = require('chai').expect;
-const sinon = require('sinon');
 const helpers = require('./helpers');
 const logger = require('../tasks/logger');
 
