@@ -1,16 +1,16 @@
 {
-  "extends": "eslint:recommended",
-  "rules": {
-    "no-console": "off",
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-        "jsx": true
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-console": "off",
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "node": true
     }
-  },
-  "env": {
-    "node": true
-  }
 }
