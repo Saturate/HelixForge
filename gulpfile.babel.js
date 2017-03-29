@@ -1,7 +1,6 @@
 import gulp from 'gulp';
 import chalk from 'chalk';
 
-
 import ConfigurationReader from './lib/configuration-reader';
 
 const cr = new ConfigurationReader();
