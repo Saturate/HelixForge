@@ -9,7 +9,13 @@ const cr = new ConfigurationReader({
 });
 */
 
+// import tasks
+import addHosts from './tasks/hostfile';
+
 module.exports.default = function(done) {
 	console.log('does nothing yet.');
 	done();
 }
+
+exports.hosts = addHosts;
+
