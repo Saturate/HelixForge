@@ -18,14 +18,12 @@ function addHosts(done) {
 		}
 	];
 
-	const hosts = dummyDataHosts.slice(0); // Clone the hosts array
-
 	function insertCollection(callback) {
 		'use strict';
-		var hosts = dummyDataHosts.slice(0); // Clone the hosts array
+		let hosts = dummyDataHosts.slice(0); // Clone the hosts array
 		(function insertOne() {
-			var host = hosts.splice(0, 1)[0]; // get the first record and reduce by one
-			hostile.set(host.ip, host.hostname, function (err) {
+			let host = hosts.splice(0, 1)[0]; // get the first record and reduce by one
+			hostile.set(host.ip, host.hostname, (err) => {
 			if (err) {
 				console.error(err);
 			} else {
