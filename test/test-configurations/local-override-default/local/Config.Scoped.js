@@ -1,0 +1,3 @@
+module.exports = {
+	ScopedKey: 'ScopedValueOverwritten'
+}
