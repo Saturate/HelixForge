@@ -1,4 +1,5 @@
 module.exports = {
+	dest: 'dist',
 	hosts: [
 		{
 			ip: '127.0.0.1',
