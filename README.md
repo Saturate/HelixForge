@@ -7,6 +7,21 @@ Polymerase is the working title for the new builder for Sitecore Helix Solutions
 
 It's modular and does not only work with Helix solutions, or even sitecore - so you can use it for all your building purposes.
 
+
+## Commands
+All commands are designed to be easy to use, this is that they will do everything by default. If you want to do a subset of it, you can parse arguments, this is usefull if you only want to publish or build a single layer.
+
+- `gulp build`
+Builds the entire solution with frontend and everything.
+
+- `gulp publish [-L,--layers=layer[,layer]]`
+Publish the build artefacts to the website root.
+
+- `gulp watch`
+Watch files for changes, and publish them.
+
+## Goals
+
 ## The plan
 
 1. Build everything in one repro as a PoC, but in a modular way.

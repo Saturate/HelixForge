@@ -1,6 +1,4 @@
-/*import gulp from 'gulp';
-import chalk from 'chalk';
-*/
+import gulp from 'gulp';
 import ConfigurationReader from './lib/configuration-reader';
 
 const builder = {
@@ -11,13 +9,27 @@ builder.config = new ConfigurationReader({});
 
 // import tasks
 import addHosts from './tasks/hostfile';
-import styles from './tasks/styles';
+import StylesTask from './tasks/styles';
+import PublishTask from './tasks/publish';
+import IISBindingTask from './tasks/iisbinding';
 
-exports.styles = styles.bind(builder, builder.config.scopes.Styles);
+const styles = new StylesTask(builder.config).task();
+const iisBindings = new IISBindingTask(builder.config).task();
+iisBindings.displayName = 'ISS Website Creation';
+const hostsBindings = addHosts.bind(builder)
+const publish = new PublishTask(builder.config.scopes.Publish).task; 
+
+gulp.task('setup', gulp.series(iisBindings, styles));
+
+exports.build = gulp.parallel(styles);
+exports.publish = publish;
+exports.styles = styles;
+exports.hosts = hostsBindings;
 
 exports.default = function(done) {
 	console.log('does nothing yet.');
 	done();
 }
 
-exports.hosts = addHosts.bind(builder);
+gulp.on('stop', () => { process.exit(0); });
+gulp.on('err', () => { process.exit(1); });

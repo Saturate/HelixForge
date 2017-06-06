@@ -9,25 +9,36 @@ import autoprefixer from 'autoprefixer';
 
 const log = debug('polymerase:styles');
 
-function styles(styleConfig) {
-	log.trace('Init styles task with config', styleConfig);
-	log.debug('browsersync is ', global.browsersync ? 'active': 'not present',  global.browsersync );
+class SassTask {
+	constructor (config) {
+		log.trace('Init styles task with config', config.scopes.Styles);
+		log.debug('browsersync is ', global.browsersync ? 'active': 'not present',  global.browsersync );
 
-	return gulp.src(styleConfig.styleFiles)
-		.pipe(plumber())
-		.pipe(sourcemaps.init())
-		.pipe(sass.sync({
-			outputStyle: 'expanded',
-			precision: 10,
-			includePaths: ['.']
-		}).on('error', sass.logError))
-		.pipe(cssnano())
-		.pipe(postcss([
-			autoprefixer(styleConfig.autoprefixer),
-			cssnano()
-		]))
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(this.config.dist + 'dist/styles'));
+		this.config = config;
+		this.styleConfig = config.scopes.Styles;
+
+		this.task.bind(this);
+	}
+
+	task () {
+		console.log(this);
+		return () => {
+			return gulp.src(this.styleConfig.styleFiles)
+			.pipe(plumber())
+			.pipe(sourcemaps.init())
+			.pipe(sass.sync({
+				outputStyle: 'expanded',
+				precision: 10,
+				includePaths: ['.']
+			}).on('error', sass.logError))
+			.pipe(postcss([
+				autoprefixer(this.styleConfig.autoprefixer),
+				cssnano()
+			]))
+			.pipe(sourcemaps.write())
+			.pipe(gulp.dest(this.config.dist + 'dist/styles'));
+		}
+	}
 }
 
-module.exports = styles;
+export default SassTask;
