@@ -1,9 +1,9 @@
-# polymerase
-[![Build Status](https://img.shields.io/appveyor/ci/Saturate/polymerase.svg?style=flat-square)](https://ci.appveyor.com/project/Saturate/polymerase)
-[![Dependency Status](https://img.shields.io/david/PentiaLabs/generator-helix.svg?style=flat-square)](https://david-dm.org/Saturate/polymerase)
-[![License](https://img.shields.io/npm/l/generator-helix.svg?style=flat-square)](https://github.com/Saturate/polymerase/blob/master/LICENSE)
+# HelixForge
+[![Build Status](https://img.shields.io/appveyor/ci/Saturate/HelixForge.svg?style=flat-square)](https://ci.appveyor.com/project/Saturate/HelixForge)
+[![Dependency Status](https://img.shields.io/david/Saturate/HelixForge.svg?style=flat-square)](https://david-dm.org/Saturate/HelixForge)
+[![License](https://img.shields.io/npm/l/generator-helix.svg?style=flat-square)](https://github.com/Saturate/HelixForge/blob/master/LICENSE)
 
-Polymerase is the working title for the new builder for Sitecore Helix Solutions.
+HelixForge is the working title for the new builder for Sitecore Helix Solutions.
 
 It's modular and does not only work with Helix solutions, or even sitecore - so you can use it for all your building purposes.
 
